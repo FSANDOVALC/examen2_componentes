@@ -11,7 +11,7 @@ public class Auditor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long id;
     private String nombre;
     private String primerApellido;
     private String segundoApellido;
@@ -25,7 +25,7 @@ public class Auditor {
     public Auditor() {
     }
 
-    public Auditor(int id, String nombre, String primerApellido, String segundoApellido, String direccion, String telefono, Date fechaNacimiento, String email, String disponibilidad, String especialidad) {
+    public Auditor(Long id, String nombre, String primerApellido, String segundoApellido, String direccion, String telefono, Date fechaNacimiento, String email, String disponibilidad, String especialidad) {
         this.id = id;
         this.nombre = nombre;
         this.primerApellido = primerApellido;
@@ -38,11 +38,11 @@ public class Auditor {
         this.especialidad = especialidad;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

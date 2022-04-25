@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Editar Auditor</title>
+</head>
+<body>
+
+<h1>Editar</h1>
+<form action="#" th:action="@{/auditors/editar/{id}(id=${id})}" th:object="${auditorToEdit}" method="post">
+    <div>
+        <label for="nombre">Nombre</label>
+        <input type="text" th:field="*{nombre}" id="nombre"/>
+    </div>
+    <div>
+        <label for="primerApellido">Primer Apellido</label>
+        <input type="text" th:field="*{primerApellido}" id="primerApellido"/>
+    </div>
+    <div>
+        <label for="segundoApellido">Segundo Apellido</label>
+        <input type="text" th:field="*{segundoApellido}" id="segundoApellido"/>
+    </div>
+    <div>
+        <label for="direccion">Direccion</label>
+        <input type="text" th:field="*{direccion}" id="direccion"/>
+    </div>
+    <div>
+        <label for="telefono">Telefono</label>
+        <input type="text" th:field="*{telefono}" id="telefono"/>
+    </div>
+    <div>
+        <label for="fechaNacimiento">Fecha de Nacimiento</label>
+        <input type="date" th:field="*{fechaNacimiento}" id="fechaNacimiento"/>
+    </div>
+    <div>
+        <label for="email">Email</label>
+        <input type="text" th:field="*{email}" id="email"/>
+    </div>
+    <div>
+        <label for="disponibilidad">Disponibilidad</label>
+        <input type="date" th:field="*{disponibilidad}" id="disponibilidad"/>
+    </div>
+    <div>
+        <label for="especialidad">Especialidad</label>
+        <input type="text" th:field="*{especialidad}" id="especialidad"/>
+    </div>
+    <input type="submit" value="Guardar cambios">
+</form>
+
+<br>
+<br>
+
+<input type="button" onclick="location.href='/';" value="Volver" />
+
+</body>
+</html>

@@ -1,8 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Lista de Auditores</title>
 </head>
 <body>
 
@@ -24,7 +23,7 @@
                     <p>Disponibilidad: <span th:text="${entry.disponibilidad}"></span></p>
                     <p>Especialidad: <span th:text="${entry.especialidad}"></span></p>
                 </div>
-                <a th:href="@{/editar/{id}(id=${entry.id})}">Editar</a>
+                <a th:href="@{/auditors/editar/{id}(id=${entry.id})}">Editar</a>
 
                 <a th:href="@{/borrar/{id}(id=${entry.id})}">Borrar</a>
             </li>

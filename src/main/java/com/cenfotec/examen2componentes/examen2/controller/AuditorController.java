@@ -6,14 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.Instant;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping({"/auditors"})
@@ -45,6 +43,23 @@ public class AuditorController {
     public @ResponseBody
     List getAll() {
         return auditorService.getAll();
+    }
+
+    @RequestMapping(value = "editar/{id}")
+    public String irAEditar(Model model, @PathVariable int id) {
+        Optional<Auditor> auditorToEdit = auditorService.getById(id);
+        if (auditorToEdit.isPresent()){
+            model.addAttribute("auditorToEdit", auditorToEdit);
+            return "editarAuditor";
+        } else {
+            return "notFound";
+        }
+    }
+
+    @RequestMapping(value = "editar/{id}", method = RequestMethod.POST)
+    public String guardarCambios(Auditor auditor, BindingResult result, Model model, @PathVariable int id) {
+        auditorService.updateAuditor(auditor);
+        return "exito";
     }
 
 }
