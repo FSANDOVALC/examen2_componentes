@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <h1>Lista de Auditores</h1>
+
+    <ul>
+        <div th:each="entry,status : ${auditor}">
+            <li>
+                <div></div>
+                <div>
+                    <p>Id: <span th:text="${entry.id}"></span></p>
+                    <p>Nombre: <span th:text="${entry.nombre}"></span></p>
+                    <p>Primer Apellido <span th:text="${entry.primerApellido}"></span></p>
+                    <p>Segundo Apellido: <span th:text="${entry.segundoApellido}"></span></p>
+                    <p>Direccion: <span th:text="${entry.direccion}"></span></p>
+                    <p>Telefono: <span th:text="${entry.telefono}"></span></p>
+                    <p>Fecha Nacimiento: <span th:text="${entry.fechaNacimiento}"></span></p>
+                    <p>Email: <span th:text="${entry.email}"></span></p>
+                    <p>Disponibilidad: <span th:text="${entry.disponibilidad}"></span></p>
+                    <p>Especialidad: <span th:text="${entry.especialidad}"></span></p>
+                </div>
+                <a th:href="@{/editar/{id}(id=${entry.id})}">Editar</a>
+
+                <a th:href="@{/borrar/{id}(id=${entry.id})}">Borrar</a>
+            </li>
+        </div>
+    </ul>
+
+</body>
+</html>

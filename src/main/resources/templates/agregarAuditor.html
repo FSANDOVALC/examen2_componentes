@@ -8,26 +8,50 @@
 
 <h1>Insertar</h1>
 <form action="#" th:action="@{/auditors/agregarAuditor}" th:object="${auditor}" method="post">
-    <label for="nombre">Nombre</label>
-    <input type="text" th:field="*{nombre}" id="nombre"/>
-    <label for="primerApellido">Primer Apellido</label>
-    <input type="text" th:field="*{primerApellido}" id="primerApellido"/>
-    <label for="segundoApellido">Segundo Apellido</label>
-    <input type="text" th:field="*{segundoApellido}" id="segundoApellido"/>
-    <label for="direccion">Direccion</label>
-    <input type="text" th:field="*{direccion}" id="direccion"/>
-    <label for="telefono">Telefono</label>
-    <input type="text" th:field="*{telefono}" id="telefono"/>
-    <label for="fechaNacimiento">Fecha de Nacimiento</label>
-    <input type="date" th:field="*{fechaNacimiento}" id="fechaNacimiento"/>
-    <label for="email">Email</label>
-    <input type="text" th:field="*{email}" id="email"/>
-    <label for="disponibilidad">Disponibilidad</label>
-    <input type="date" th:field="*{disponibilidad}" id="disponibilidad"/>
-    <label for="especialidad">Especialidad</label>
-    <input type="text" th:field="*{especialidad}" id="especialidad"/>
-    <input type="submit" value="add entry">
+    <div>
+        <label for="nombre">Nombre</label>
+        <input type="text" th:field="*{nombre}" id="nombre"/>
+    </div>
+    <div>
+        <label for="primerApellido">Primer Apellido</label>
+        <input type="text" th:field="*{primerApellido}" id="primerApellido"/>
+    </div>
+    <div>
+        <label for="segundoApellido">Segundo Apellido</label>
+        <input type="text" th:field="*{segundoApellido}" id="segundoApellido"/>
+    </div>
+    <div>
+        <label for="direccion">Direccion</label>
+        <input type="text" th:field="*{direccion}" id="direccion"/>
+    </div>
+    <div>
+        <label for="telefono">Telefono</label>
+        <input type="text" th:field="*{telefono}" id="telefono"/>
+    </div>
+    <div>
+        <label for="fechaNacimiento">Fecha de Nacimiento</label>
+        <input type="date" th:field="*{fechaNacimiento}" id="fechaNacimiento"/>
+    </div>
+    <div>
+        <label for="email">Email</label>
+        <input type="text" th:field="*{email}" id="email"/>
+    </div>
+    <div>
+        <label for="disponibilidad">Disponibilidad</label>
+        <input type="date" th:field="*{disponibilidad}" id="disponibilidad"/>
+    </div>
+    <div>
+        <label for="especialidad">Especialidad</label>
+        <input type="text" th:field="*{especialidad}" id="especialidad"/>
+    </div>
+    <input type="submit" value="Agregar auditor">
 </form>
+
+<br>
+<br>
+
+<input type="button" onclick="location.href='/';" value="Volver" />
+
 
 </body>
 </html>

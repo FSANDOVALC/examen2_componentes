@@ -35,14 +35,16 @@ public class AuditorController {
         return "exito";
     }
 
+    @RequestMapping(value = "/listarAuditores", method = RequestMethod.GET)
+    public String listarAuditores(Model model){
+        model.addAttribute("auditor", auditorService.getAll());
+        return "listarAuditores";
+    }
+
     @GetMapping(value ="/lista", produces = "application/json")
     public @ResponseBody
     List getAll() {
         return auditorService.getAll();
     }
 
-    @GetMapping(value = "/listatest")
-    public String getTest() {
-        return "Hola mundo";
-    }
 }
