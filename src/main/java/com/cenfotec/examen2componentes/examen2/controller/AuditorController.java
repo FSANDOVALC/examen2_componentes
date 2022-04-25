@@ -8,8 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.Instant;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,7 +26,6 @@ public class AuditorController {
 
     @RequestMapping(value = "/agregarAuditor", method = RequestMethod.POST)
     public String accionPaginaInsertar(Auditor auditor, BindingResult result, Model model){
-        auditor.setFechaNacimiento(Date.from(Instant.now()));
         auditorService.saveAuditor(auditor);
         return "exito";
     }

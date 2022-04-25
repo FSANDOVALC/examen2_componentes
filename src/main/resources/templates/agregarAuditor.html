@@ -37,8 +37,12 @@
         <input type="text" th:field="*{email}" id="email"/>
     </div>
     <div>
-        <label for="disponibilidad">Disponibilidad</label>
-        <input type="date" th:field="*{disponibilidad}" id="disponibilidad"/>
+        <label for="disponibilidad">Disponibilidad: </label>
+        <select id="disponibilidad" required th:field="*{disponibilidad}">
+            <option value="" hidden>Seleccionar disponibilidad</option>
+            <option value="disponible">Disponible</option>
+            <option value="no_disponible">No Disponible</option>
+        </select>
     </div>
     <div>
         <label for="especialidad">Especialidad</label>

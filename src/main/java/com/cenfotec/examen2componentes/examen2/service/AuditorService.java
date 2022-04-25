@@ -13,16 +13,16 @@ public class AuditorService {
     @Autowired
     AuditorRepository auditorRepository;
 
-    public void saveAuditor(Auditor auditor){
-        auditorRepository.save(auditor);
-    }
-
     public List<Auditor> getAll() {
         return auditorRepository.findAll();
     }
 
     public Optional<Auditor> getById(int id) {
         return  auditorRepository.findById(Long.valueOf(id));
+    }
+
+    public void saveAuditor(Auditor auditor){
+        auditorRepository.save(auditor);
     }
 
     public void updateAuditor(Auditor auditor){

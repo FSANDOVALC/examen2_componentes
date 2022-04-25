@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Registrar Cliente</title>
+</head>
+<body>
+
+<h1>Registrar Cliente</h1>
+<form action="#" th:action="@{/clientes/registrarCliente}" th:object="${cliente}" method="post">
+
+    <h2>Cliente:</h2>
+
+    <div>
+        <label for="razonSocial">Razon Social</label>
+        <input type="text" th:field="*{razonSocial}" id="razonSocial"/>
+    </div>
+    <div>
+        <label for="cedula">Cedula</label>
+        <input type="text" th:field="*{cedula}" id="cedula"/>
+    </div>
+    <div>
+        <label for="direccion">Direccion</label>
+        <input type="text" th:field="*{direccion}" id="direccion"/>
+    </div>
+    <div>
+        <label for="telefono">Telefono</label>
+        <input type="text" th:field="*{telefono}" id="telefono"/>
+    </div>
+
+    <hr/>
+    <h2>Persona de Contacto:</h2>
+
+    <div th:action="@{/clientes/registrarPersona}" th:object="${persona}" method="post">
+        <div>
+            <label for="nombre">Nombre</label>
+            <input type="text" th:field="*{nombre}" id="nombre"/>
+        </div>
+        <div>
+            <label for="primerApellido">Primer Apellido</label>
+            <input type="text" th:field="*{primerApellido}" id="primerApellido"/>
+        </div>
+        <div>
+            <label for="segundoApellido">Segundo Apellido</label>
+            <input type="text" th:field="*{segundoApellido}" id="segundoApellido"/>
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input type="text" th:field="*{email}" id="email"/>
+        </div>
+        <div>
+            <label for="telefonoPersona">Telefono</label>
+            <input type="text" th:field="*{telefonoPersona}" id="telefonoPersona"/>
+        </div>
+    </div>
+
+    <input type="submit" value="Agregar cliente">
+</form>
+
+<br>
+<br>
+
+<input type="button" onclick="location.href='/';" value="Volver" />
+
+</body>
+</html>

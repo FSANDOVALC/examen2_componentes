@@ -1,21 +1,28 @@
 package com.cenfotec.examen2componentes.examen2.domain;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
 public class Cliente {
 
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String razonSocial;
     private String cedula;
     private String direccion;
     private String telefono;
-    private List<PersonaContacto> personaContactoList;
 
-    public int getId() {
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "CLIENTE_ID", referencedColumnName = "ID")
+    private List<Persona> personaContactoList;
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -51,11 +58,23 @@ public class Cliente {
         this.telefono = telefono;
     }
 
-    public List<PersonaContacto> getPersonaContactoList() {
+    public List<Persona> getPersonaContactoList() {
         return personaContactoList;
     }
 
-    public void setPersonaContactoList(List<PersonaContacto> personaContactoList) {
+    public void setPersonaContactoList(List<Persona> personaContactoList) {
         this.personaContactoList = personaContactoList;
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "id=" + id +
+                ", razonSocial='" + razonSocial + '\'' +
+                ", cedula='" + cedula + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", personaContactoList=" + personaContactoList +
+                '}';
     }
 }
