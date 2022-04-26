@@ -2,6 +2,7 @@ package com.cenfotec.examen2componentes.examen2.controller;
 
 import com.cenfotec.examen2componentes.examen2.domain.Cliente;
 import com.cenfotec.examen2componentes.examen2.domain.Trabajo;
+import com.cenfotec.examen2componentes.examen2.service.ClienteService;
 import com.cenfotec.examen2componentes.examen2.service.TrabajoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,11 +21,13 @@ public class TrabajoController {
 
     @Autowired
     TrabajoService trabajoService;
+    @Autowired
+    ClienteService clienteService;
 
     @RequestMapping(value = "/registrarTrabajo", method = RequestMethod.GET)
     public String navegarPaginaInsertar(Model model){
-        model.addAttribute("trabajo",new Trabajo());
-        model.addAttribute("cliente",new Cliente());
+        model.addAttribute("trabajo", new Trabajo());
+        model.addAttribute("cliente", clienteService.getAll());
         return "registrarTrabajo";
     }
 
