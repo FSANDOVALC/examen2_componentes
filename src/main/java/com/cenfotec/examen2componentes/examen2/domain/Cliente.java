@@ -1,6 +1,7 @@
 package com.cenfotec.examen2componentes.examen2.domain;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -15,8 +16,22 @@ public class Cliente {
     private String telefono;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "CLIENTE_ID", referencedColumnName = "ID")
+    @JoinColumn(name = "AUTHOR_ID", referencedColumnName = "ID")
     private List<Persona> personaContactoList;
+
+    public Cliente() {
+        super();
+        personaContactoList = new ArrayList<>();
+    }
+
+    public Cliente(Long id, String razonSocial, String cedula, String direccion, String telefono, List<Persona> personaContactoList) {
+        this.id = id;
+        this.razonSocial = razonSocial;
+        this.cedula = cedula;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.personaContactoList = personaContactoList;
+    }
 
     public Long getId() {
         return id;

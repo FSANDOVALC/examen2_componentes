@@ -1,5 +1,6 @@
 package com.cenfotec.examen2componentes.examen2.domain;
 
+
 import javax.persistence.*;
 
 @Entity
@@ -15,10 +16,20 @@ public class Persona {
     private String telefonoPersona;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "CLIENTE_ID", referencedColumnName = "ID")
+    @JoinColumn(name = "PERSONA_ID", referencedColumnName = "ID")
     private Cliente cliente;
 
     public Persona() {
+    }
+
+    public Persona(Long id, String nombre, String primerApellido, String segundoApellido, String email, String telefonoPersona, Cliente cliente) {
+        this.id = id;
+        this.nombre = nombre;
+        this.primerApellido = primerApellido;
+        this.segundoApellido = segundoApellido;
+        this.email = email;
+        this.telefonoPersona = telefonoPersona;
+        this.cliente = cliente;
     }
 
     public Long getId() {

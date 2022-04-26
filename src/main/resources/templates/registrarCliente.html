@@ -30,28 +30,26 @@
     <hr/>
     <h2>Persona de Contacto:</h2>
 
-    <div th:action="@{/clientes/registrarPersona}" th:object="${persona}" method="post">
         <div>
             <label for="nombre">Nombre</label>
-            <input type="text" th:field="*{nombre}" id="nombre"/>
+            <input type="text" th:field="*{personaContactoList[0].nombre}" id="nombre"/>
         </div>
         <div>
             <label for="primerApellido">Primer Apellido</label>
-            <input type="text" th:field="*{primerApellido}" id="primerApellido"/>
+            <input type="text" th:field="*{personaContactoList[0].primerApellido}" id="primerApellido"/>
         </div>
         <div>
             <label for="segundoApellido">Segundo Apellido</label>
-            <input type="text" th:field="*{segundoApellido}" id="segundoApellido"/>
+            <input type="text" th:field="*{personaContactoList[0].segundoApellido}" id="segundoApellido"/>
         </div>
         <div>
             <label for="email">Email</label>
-            <input type="text" th:field="*{email}" id="email"/>
+            <input type="text" th:field="*{personaContactoList[0].email}" id="email"/>
         </div>
         <div>
             <label for="telefonoPersona">Telefono</label>
-            <input type="text" th:field="*{telefonoPersona}" id="telefonoPersona"/>
+            <input type="text" th:field="*{personaContactoList[0].telefonoPersona}" id="telefonoPersona"/>
         </div>
-    </div>
 
     <input type="submit" value="Agregar cliente">
 </form>

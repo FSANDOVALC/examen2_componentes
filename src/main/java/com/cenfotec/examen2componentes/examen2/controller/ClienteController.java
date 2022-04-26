@@ -35,24 +35,28 @@ public class ClienteController {
     }
 
     @RequestMapping(value = "/registrarCliente", method = RequestMethod.POST)
-    public String accionPaginaInsertar(Cliente cliente, BindingResult result, Model model){
+    public String accionPaginaInsertar(Cliente cliente, Persona persona, BindingResult result, Model model){
+        //List<Persona> listPersona = new ArrayList();
+        //listPersona.add(persona);
+        //cliente.setPersonaContactoList(listPersona);
+        //System.out.print(cliente);
         clienteService.saveCliente(cliente);
         return "exito";
     }
 
-    @RequestMapping(value = "/registrarPersona", method = RequestMethod.GET)
-    public void mostrarPersona(Model model){
-        model.addAttribute(new Persona());
-    }
-
-    @RequestMapping(value = "/registrarPersona", method = RequestMethod.POST)
-    public void registrarPersona(Persona persona, BindingResult result, Model model){
-        Optional<Cliente> tmpCliente = clienteService.getById(Math.toIntExact(this.cliente.getId()));
-        List<Persona> listPersona = new ArrayList();
-        listPersona.add(persona);
-        tmpCliente.get().setPersonaContactoList(listPersona);
-        clienteService.saveCliente(tmpCliente.get());
-    }
+//    @RequestMapping(value = "/registrarPersona", method = RequestMethod.GET)
+//    public void mostrarPersona(Model model){
+//        model.addAttribute(new Persona());
+//    }
+//
+//    @RequestMapping(value = "/registrarPersona", method = RequestMethod.POST)
+//    public void registrarPersona(Persona persona, BindingResult result, Model model){
+//        Optional<Cliente> tmpCliente = clienteService.getById(Math.toIntExact(this.cliente.getId()));
+//        List<Persona> listPersona = new ArrayList();
+//        listPersona.add(persona);
+//        tmpCliente.get().setPersonaContactoList(listPersona);
+//        clienteService.saveCliente(tmpCliente.get());
+//    }
 
     @GetMapping(value ="/lista", produces = "application/json")
     public @ResponseBody
