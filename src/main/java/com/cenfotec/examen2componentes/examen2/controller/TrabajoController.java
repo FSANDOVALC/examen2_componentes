@@ -32,7 +32,7 @@ public class TrabajoController {
     }
 
     @RequestMapping(value = "/registrarTrabajo", method = RequestMethod.POST)
-    public String accionPaginaInsertar(Trabajo trabajo, Cliente cliente, BindingResult result, Model model){
+    public String accionPaginaInsertar(Trabajo trabajo, BindingResult result, Model model){
         trabajoService.saveTrabajo(trabajo);
         return "exito";
     }

@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<h1>Registrar Cliente</h1>
+<h1>Registrar Trabajo</h1>
 <form action="#" th:action="@{/trabajos/registrarTrabajo}" th:object="${trabajo}" method="post">
 
     <h2>Trabajo:</h2>
@@ -18,10 +18,20 @@
         <label for="fecha">Fecha</label>
         <input type="date" th:field="*{fecha}" id="fecha"/>
     </div>
-    <div th:each="cliente : ${cliente}">
-        <p>Razon Social: <span th:text="${cliente.razonSocial}"></span></p>
-        <p>Cedula: <span th:text="${cliente.cedula}"></span></p>
+
+    <h2>Clientes:</h2>
+
+    <div>
+        <label for="cliente">Cliente: </label>
+        <select id="cliente" required>
+            <option th:each="i : ${cliente}"
+                    th:text="${i.razonSocial}"
+                    th:value="${i}">
+            </option>
+        </select>
     </div>
+
+    <input type="submit" value="Agregar trabajo">
 
 </form>
 
