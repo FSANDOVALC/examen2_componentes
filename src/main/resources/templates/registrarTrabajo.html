@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Registrar Trabajo</title>
+</head>
+<body>
+
+<h1>Registrar Cliente</h1>
+<form action="#" th:action="@{/trabajos/registrarTrabajo}" th:object="${trabajo}" method="post">
+
+    <h2>Trabajo:</h2>
+
+    <div>
+        <label for="nombreAuditoria">Nombre de Auditoria</label>
+        <input type="text" th:field="*{nombreAuditoria}" id="nombreAuditoria"/>
+    </div>
+    <div>
+        <label for="fecha">Fecha</label>
+        <input type="date" th:field="*{fecha}" id="fecha"/>
+    </div>
+
+</form>
+
+<br>
+<br>
+
+<input type="button" onclick="location.href='/';" value="Volver" />
+
+</body>
+</html>
