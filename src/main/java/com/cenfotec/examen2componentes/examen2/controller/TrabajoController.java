@@ -37,6 +37,12 @@ public class TrabajoController {
         return "exito";
     }
 
+    @RequestMapping(value = "/listarTrabajos", method = RequestMethod.GET)
+    public String listarTrabajos(Model model){
+        model.addAttribute("trabajo", trabajoService.getAll());
+        return "listarTrabajos";
+    }
+
     @GetMapping(value ="/lista", produces = "application/json")
     public @ResponseBody
     List getAll() {

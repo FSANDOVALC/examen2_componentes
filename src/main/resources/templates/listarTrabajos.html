@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Trabajos</title>
+</head>
+<body>
+
+<h1>Lista de Trabajos</h1>
+
+<ul>
+    <div th:each="entry,status : ${trabajo}">
+        <li>
+            <div></div>
+            <div>
+                <p>Id: <span th:text="${entry.id}"></span></p>
+                <p>Nombre de Auditoria: <span th:text="${entry.nombreAuditoria}"></span></p>
+                <p>Fecha: <span th:text="${entry.fecha}"></span></p>
+                <p>Cliente: <span th:text="${entry.clientesList}"></span></p>
+            </div>
+        </li>
+    </div>
+</ul>
+
+<input type="button" onclick="location.href='/';" value="Volver" />
+
+</body>
+</html>

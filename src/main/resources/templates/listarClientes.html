@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Clientes</title>
+</head>
+<body>
+
+<h1>Lista de Clientes</h1>
+
+<ul>
+    <div th:each="entry,status : ${cliente}">
+        <li>
+            <div></div>
+            <div>
+                <p>Id: <span th:text="${entry.id}"></span></p>
+                <p>Razon Social: <span th:text="${entry.razonSocial}"></span></p>
+                <p>Cedula: <span th:text="${entry.cedula}"></span></p>
+                <p>Direccion: <span th:text="${entry.direccion}"></span></p>
+                <p>Telefono: <span th:text="${entry.telefono}"></span></p>
+                <p>Personas de Contacto: <span th:text="${entry.personaContactoList}"></span></p>
+            </div>
+        </li>
+    </div>
+</ul>
+
+<input type="button" onclick="location.href='/';" value="Volver" />
+
+</body>
+</html>

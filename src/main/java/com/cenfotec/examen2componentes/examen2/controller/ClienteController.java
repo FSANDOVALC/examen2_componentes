@@ -36,6 +36,12 @@ public class ClienteController {
         return "exito";
     }
 
+    @RequestMapping(value = "/listarClientes", method = RequestMethod.GET)
+    public String listarClientes(Model model){
+        model.addAttribute("cliente", clienteService.getAll());
+        return "listarClientes";
+    }
+
     @GetMapping(value ="/lista", produces = "application/json")
     public @ResponseBody
     List getAll() {
