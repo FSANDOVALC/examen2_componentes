@@ -15,8 +15,8 @@ public class Cliente {
     private String direccion;
     private String telefono;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "AUTHOR_ID", referencedColumnName = "ID")
+    @OneToMany(targetEntity = Persona.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "cp_fk", referencedColumnName = "id")
     private List<Persona> personaContactoList;
 
     public Cliente() {

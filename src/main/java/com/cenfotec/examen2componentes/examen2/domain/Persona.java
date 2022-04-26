@@ -15,10 +15,6 @@ public class Persona {
     private String email;
     private String telefonoPersona;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "PERSONA_ID", referencedColumnName = "ID")
-    private Cliente cliente;
-
     public Persona() {
     }
 
@@ -29,7 +25,6 @@ public class Persona {
         this.segundoApellido = segundoApellido;
         this.email = email;
         this.telefonoPersona = telefonoPersona;
-        this.cliente = cliente;
     }
 
     public Long getId() {
@@ -80,14 +75,6 @@ public class Persona {
         this.telefonoPersona = telefonoPersona;
     }
 
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
     @Override
     public String toString() {
         return "PersonaContacto{" +
@@ -97,7 +84,6 @@ public class Persona {
                 ", segundoApellido='" + segundoApellido + '\'' +
                 ", email='" + email + '\'' +
                 ", telefono='" + telefonoPersona + '\'' +
-                ", cliente=" + cliente +
                 '}';
     }
 }
